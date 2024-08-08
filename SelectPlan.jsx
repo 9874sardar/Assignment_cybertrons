@@ -28,7 +28,10 @@ const SelectPlan = ({navigation}) => {
   },[])
 
   const handlePress = () => {
-    Alert.alert(JSON.stringify(final,checked,form));
+    setData({...data,form})
+    Alert.alert(JSON.stringify(checked));
+    Alert.alert(JSON.stringify(form));
+    Alert.alert(JSON.stringify(final));
   };
 
   return (
@@ -140,11 +143,12 @@ const SelectPlan = ({navigation}) => {
         </Text>
         <View style={styles.coloums}>
           <View style={[styles.formContent, { width: "100%" }]}>
-            <Text style={{ paddingBottom: 5 }}>Landmark</Text>
+            <Text style={{ paddingBottom: 5 }}>Card Number</Text>
             <TextInput
               style={styles.input}
               placeholder="0000 0000 0000 0000"
               name="cardname"
+              keyboardType="numeric"
               onChangeText={cardName => setForm({ ...form,cardName })}
 
               // onChangeText={onChangeField('email')}
